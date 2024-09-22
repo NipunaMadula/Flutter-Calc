@@ -10,6 +10,14 @@ class CalculatorScreen extends StatefulWidget {
 class _CalculatorScreenState extends State<CalculatorScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body:Column(
+        children: [
+          //output
+          Text("0"),
+
+        ],
+        ),
+    );
   }
 }
