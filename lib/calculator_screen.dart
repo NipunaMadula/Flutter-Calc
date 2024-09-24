@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_calc/button_values.dart';
 
 class CalculatorScreen extends StatefulWidget {
   const CalculatorScreen({super.key});
@@ -10,17 +11,19 @@ class CalculatorScreen extends StatefulWidget {
 class _CalculatorScreenState extends State<CalculatorScreen> {
   @override
   Widget build(BuildContext context) {
+    final screenSize=MediaQuery.of(context).size;
     return Scaffold(
       body:Column(
         children: [
           //output
           Expanded(
             child: SingleChildScrollView(
+              reverse: true,
               child: Container(
                 alignment: Alignment.bottomRight,
                 padding: const EdgeInsets.all(16),
-                child: Text("0",
-                style: const TextStyle(
+                child: const Text("0",
+                style: TextStyle(
                   fontSize: 50,
                   fontWeight: FontWeight.bold,
                 ),
@@ -32,11 +35,26 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
 
           //buttons
           Wrap(
-            children: [],
+            children: Btn.buttonValues
+            .map(
+              (value) => SizedBox(
+                width: screenSize.width/4,
+                height: screenSize.width/5 ,
+                child: buildbutton(value),
+              ),
+            )
+            .toList(),
           )
 
         ],
         ),
     );
   }
+
+
+Widget buildbutton(value) {
+  return Center(
+    child: Text(value));
+}
+
 }
