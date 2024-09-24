@@ -14,19 +14,26 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       body:Column(
         children: [
           //output
-          Container(
-            alignment: Alignment.bottomRight,
-            padding: const EdgeInsets.all(16),
-            child: Text("0",
-            style: const TextStyle(
-              fontSize: 50,
-              fontWeight: FontWeight.bold,
-            ),
-            textAlign: TextAlign.end,
+          Expanded(
+            child: SingleChildScrollView(
+              child: Container(
+                alignment: Alignment.bottomRight,
+                padding: const EdgeInsets.all(16),
+                child: Text("0",
+                style: const TextStyle(
+                  fontSize: 50,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.end,
+                ),
+              ),
             ),
           ),
 
           //buttons
+          Wrap(
+            children: [],
+          )
 
         ],
         ),
