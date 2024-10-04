@@ -53,8 +53,18 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
 
 
 Widget buildbutton(value) {
-  return Center(
-    child: Text(value));
+  return Material(
+    shape: OutlineInputBorder(borderRadius: BorderRadius.circular(100),
+    ),
+    child: Center(
+      child: InkWell(
+        onTap: () {
+          
+        },
+        child: Center(
+          child: Text(value)),
+      )),
+  );
 }
 
 }
