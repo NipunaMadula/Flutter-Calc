@@ -53,20 +53,35 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
 
 
 Widget buildbutton(value) {
-  return Material(
-    clipBehavior: Clip.hardEdge,
-    shape: OutlineInputBorder(
-      borderSide: BorderSide(color: Colors.white24),
-      borderRadius: BorderRadius.circular(100),
+  return Padding(
+    padding: const EdgeInsets.all(4.0),
+    child: Material(
+      color: [Btn.del,Btn.clr].contains(value)
+      ?Colors.blueGrey
+      :[
+        Btn.per,
+        Btn.multiply,
+        Btn.add,
+        Btn.subtract,
+        Btn.divide,
+        Btn.calculate
+        ].contains(value)
+        ?Colors.orange
+        :Colors.black87,
+      clipBehavior: Clip.hardEdge,
+      shape: OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.white24),
+        borderRadius: BorderRadius.circular(100),
+      ),
+      child: Center(
+        child: InkWell(
+          onTap: () {
+            
+          },
+          child: Center(
+            child: Text(value)),
+        )),
     ),
-    child: Center(
-      child: InkWell(
-        onTap: () {
-          
-        },
-        child: Center(
-          child: Text(value)),
-      )),
   );
 }
 
