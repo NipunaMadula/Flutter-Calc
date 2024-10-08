@@ -9,6 +9,10 @@ class CalculatorScreen extends StatefulWidget {
 }
 
 class _CalculatorScreenState extends State<CalculatorScreen> {
+ String number1="";
+  String operand="";
+  String number2="";
+
   @override
   Widget build(BuildContext context) {
     final screenSize=MediaQuery.of(context).size;
@@ -22,8 +26,9 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               child: Container(
                 alignment: Alignment.bottomRight,
                 padding: const EdgeInsets.all(16),
-                child: const Text("0",
-                style: TextStyle(
+                child: Text(
+                "$number1$operand$number2".isEmpty?"0" : "$number1$operand$number2",
+                style: const TextStyle(
                   fontSize: 50,
                   fontWeight: FontWeight.bold,
                 ),
@@ -66,9 +71,10 @@ Widget buildbutton(value) {
       ),
       child: Center(
         child: InkWell(
-          onTap: () {},
+          onTap: () => onBtnTap(value),
           child: Center(
-            child: Text(value,style: TextStyle(
+            child: Text(value,
+            style: const TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 24,
             ))
@@ -76,6 +82,59 @@ Widget buildbutton(value) {
         )),
     ),
   );
+}
+
+void onBtnTap(String value){
+
+  if(value==Btn.del){
+    delete();
+    return;
+  }
+
+  appendValue(value);
+}
+
+void delete(){
+if(number2.isNotEmpty){
+  number2=number2.substring(0, number2.length - 1);
+  }else if(operand.isNotEmpty){
+    operand="";
+  }else if(number1.isNotEmpty){
+    number1=number1.substring(0, number1.length - 1);
+  }
+
+  setState(() {
+    
+  });
+}
+
+void appendValue(String value){
+
+    if(value!=Btn.dot&&int.tryParse(value)==null){
+
+    if(operand.isNotEmpty && number2.isNotEmpty){
+
+    }
+    operand = value;
+  }else if(number1.isEmpty || operand.isEmpty){
+  
+  if(value==Btn.dot && number1.contains(Btn.dot)) return;
+  if(value==Btn.dot && number1.isEmpty || number1==Btn.dot){
+    value="0.";
+  }
+  number1 += value;
+
+  } else if(number2.isEmpty || operand.isNotEmpty){
+  
+  if(value==Btn.dot && number1.contains(Btn.dot)) return;
+  if(value==Btn.dot && number2.isEmpty || number2==Btn.dot){
+    value="0.";
+  }
+  number2 += value;
+  }
+  
+  setState(() {});
+
 }
 
 Color getBtnColor(value){
