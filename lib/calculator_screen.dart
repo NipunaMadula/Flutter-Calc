@@ -91,7 +91,20 @@ void onBtnTap(String value){
     return;
   }
 
+  if(value==Btn.clr){
+    clearAll();
+    return;
+  }
+
   appendValue(value);
+}
+
+void clearAll(){
+  setState(() {
+    number1="";
+    operand="";
+    number2="";
+  });
 }
 
 void delete(){
