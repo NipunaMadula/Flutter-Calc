@@ -66,11 +66,13 @@ Widget buildbutton(value) {
       ),
       child: Center(
         child: InkWell(
-          onTap: () {
-            
-          },
+          onTap: () {},
           child: Center(
-            child: Text(value)),
+            child: Text(value,style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 24,
+            ))
+            ),
         )),
     ),
   );
