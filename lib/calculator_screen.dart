@@ -96,7 +96,29 @@ void onBtnTap(String value){
     return;
   }
 
+  if(value==Btn.per){
+    convertToPercentage();
+    return;
+  }
+
   appendValue(value);
+}
+
+void convertToPercentage(){
+  if(number1.isNotEmpty&&operand.isNotEmpty&&number2.isNotEmpty){
+
+  }
+
+  if(operand.isNotEmpty){
+    return;
+  }
+
+  final number = double.parse(number1);
+  setState(() {
+   number1="${(number / 100)}";
+   operand="";
+   number2="";
+  });
 }
 
 void clearAll(){
