@@ -4,6 +4,11 @@
 
 `flutter_calc` is a simple yet powerful calculator application built with Flutter. It supports basic arithmetic operations and includes user-friendly UI components. This project showcases essential Flutter features like button handling, input management, state management, and dynamic screen layouts for various screen sizes.
 
+## Screenshot
+
+![Calculator Screenshot](https://github.com/NipunaMadula/Flutter-Calc/blob/8add84be24e92904d0b45fe64af38de880b652dd/Screenshot1.png)
+
+
 ## Features
 
 - **Basic Operations**: Perform addition, subtraction, multiplication, and division.
